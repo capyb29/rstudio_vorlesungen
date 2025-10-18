@@ -17,3 +17,4 @@ l2_4 <- round(ex2_4,digits = 2)
 l2_5 <- sum(1:10)
 #Aufgabe 2.6
 
+# Hallo ich teste Git
