@@ -14,6 +14,7 @@ joined_m_v1_v2 <- append(m_v1, m_v2)
 
 DS.MATRIX <- matrix(joined_m_v1_v2, nrow = 2, ncol = 5, byrow = TRUE)
 # Aufgabe 4
+# lieber rsum benutzen, aber waren zu schnell
 summe <- c(sum(DS.MATRIX[1,]),sum(DS.MATRIX[2,]))
 DS.MATRIX2 <- matrix(summe)
 DS.MATRIX3 <- cbind(DS.MATRIX,DS.MATRIX2)
