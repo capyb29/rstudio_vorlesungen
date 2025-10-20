@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Absatzmenge <- c(10, 12, 8, 9, 11, 19, 9)
 Verkaufstage <- c("Mo","Di","Mi","Do","Fr","Sa","So")
 names(Absatzmenge) <- Verkaufstage
@@ -25,7 +24,7 @@ zeilen <- c("Z1", "Z2")
 
 colnames(DS.MATRIX3) <- spalten
 rownames(DS.MATRIX3) <- zeilen
-=======
+
 Absatzmenge <- c(10, 12, 8, 9, 11, 19, 9)
 Verkaufstage <- c("Mo","Di","Mi","Do","Fr","Sa","So")
 names(Absatzmenge) <- Verkaufstage
@@ -52,4 +51,3 @@ zeilen <- c("Z1", "Z2")
 
 colnames(DS.MATRIX3) <- spalten
 rownames(DS.MATRIX3) <- zeilen
->>>>>>> 3d5c691 (fuck git)
