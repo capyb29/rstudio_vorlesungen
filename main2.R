@@ -4,3 +4,4 @@ bev = bev[,-2:-5]
 colnames(bev)[colnames(bev)=="X31.12.2019"] <- "Stichtag 31.12.2019"
 
 bev_na = any(is.na(bev))
+höchsten5 = head(bev[order(-bev$`Stichtag 31.12.2019`),],5)
