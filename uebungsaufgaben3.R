@@ -1,6 +1,7 @@
 
 library(data.table)
 library(readxl, writexl)
+library(dplyr)
 
 bsp = fread("beispiel.csv")
 bsp$mwst = '19%'
@@ -22,3 +23,9 @@ df = data.frame(spalte.1 = 10, spalte.2 = letters[1:10])
 
 
 list = list(Vektor = vektor, Matrix = matrix1, DataFrame = df)
+
+
+# Aufgabe 3
+
+rpos = read_excel("RPOS2017.xlsx", sheet = "2017")
+rpos17 = filter(rpos, Jahr == 2017)
