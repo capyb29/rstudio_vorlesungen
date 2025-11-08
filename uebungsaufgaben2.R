@@ -10,7 +10,7 @@ df.nameOfRows <- rownames(df)
 df.dimensions <- dim(df)
 
 df$s3 = rep(NA,nrow(df))
-df$s4 = df$s1 * 2
+df$s4 = df$s1 * 100
 df$s5 = df$s4 *2
 df$s6 = df$s1 / 100
 
