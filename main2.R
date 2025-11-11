@@ -1,7 +1,56 @@
-# Dataframe daten csv
+# Aufgabe 1
 bev = read.csv("bev.csv", sep=";")
-bev = bev[,-2:-5]
+bev = bev[,c("Kreis","X31.12.2019")]
 colnames(bev)[colnames(bev)=="X31.12.2019"] <- "Stichtag 31.12.2019"
 
 bev_na = any(is.na(bev))
-höchsten5 = head(bev[order(-bev$`Stichtag 31.12.2019`),],5)
+#print(bev_na)
+höchsten5 = bev[order(bev$`Stichtag 31.12.2019`,decreasing = TRUE),][1:5,]
+bewohner_top5 = höchsten5$`Stichtag 31.12.2019`
+names(bewohner_top5) = höchsten5$Kreis
+bewohner_insgesamt = sum(bewohner_top5)
+dif_ham_ber = bewohner_top5["Berlin"] - bewohner_top5["Hamburg"]
+dif_min_max = bewohner_top5[1] - bewohner_top5[5]
+anteil_bewohner_top5 = bewohner_top5 / bewohner_insgesamt * 100
+
+#Aufgabe 2
+aktien_matrix <- matrix(,nrow=2,ncol=5)
+print(dim(aktien_matrix))
+rownames(aktien_matrix) <- c("Aktie A","Aktie B")
+colnames(aktien_matrix) <- c("MO","DI","MI","DO","FR")
+aktien_matrix["Aktie A",] <- c(120,123,128,129,131)
+aktien_matrix["Aktie B",] <- c(56,49,45,81,97)
+aktien_matrix_dif <- aktien_matrix
+aktien_matrix_dif["Aktie A",] <- c(0,diff(aktien_matrix["Aktie A",]))
+aktien_matrix_dif["Aktie B",] <- c(0,diff(aktien_matrix["Aktie B",]))
+aktien_matrix <- cbind(aktien_matrix, Durchschnitt = rowMeans(aktien_matrix_dif))
+Kaufempfehlung <- c(0,1)
+aktien_matrix <- cbind(aktien_matrix, Kaufempfehlung)
+
+#Aufgabe 3 
+umsatz_df <- data.frame(
+  Region = c("A", "B", "C", "D", "E"),
+  Umsatz = c(12, 20, 7, 14,19)
+)
+N = nrow(umsatz_df)
+Gesamtumsatz = sum(umsatz_df$Umsatz)
+umsatz_df <- umsatz_df[order(umsatz_df$Umsatz),]
+Umsatzanteil = umsatz_df$Umsatz / Gesamtumsatz
+umsatz_df <- cbind(umsatz_df, Umsatzanteil)
+kumulierter_anteil = cumsum(Umsatzanteil)
+umsatz_df <- cbind(umsatz_df, kumulierter_anteil)
+V = sum(umsatz_df$kumulierter_anteil) - 0.5
+gini_koeffizient = 1 - (2*V)/N
+print(ineq::Gini(umsatz_df$Umsatz))
+
+#Aufgabe 4
+maschinen_df <- data.frame(
+  Monat = c("Januar","Februar","März","April","Mai","Juni"),
+  Maschine1 = c(620,680,620,580,560,600),
+  Maschine2 = c(590,590,600,570,580,610)
+)
+
+arischmetische_mitte1 = mean(maschinen_df$Maschine1)
+arischmetische_mitte2 = mean(maschinen_df$Maschine2)
+spannweite1 = max(maschinen_df$Maschine1) - min(maschinen_df$Maschine1)
+spannweite2 = max(maschinen_df$Maschine2) - min(maschinen_df$Maschine2)
