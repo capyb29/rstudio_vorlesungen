@@ -50,7 +50,23 @@ maschinen_df <- data.frame(
   Maschine2 = c(590,590,600,570,580,610)
 )
 
-arischmetische_mitte1 = mean(maschinen_df$Maschine1)
-arischmetische_mitte2 = mean(maschinen_df$Maschine2)
+arithmetisches_mittel1 = mean(maschinen_df$Maschine1)
+arithmetisches_mittel2 = mean(maschinen_df$Maschine2)
 spannweite1 = max(maschinen_df$Maschine1) - min(maschinen_df$Maschine1)
 spannweite2 = max(maschinen_df$Maschine2) - min(maschinen_df$Maschine2)
+varianz1stichprobe = var(maschinen_df$Maschine1)
+varianz1gesamt = varianz1stichprobe * (nrow(maschinen_df)-1) / nrow(maschinen_df)
+varianz2stichprobe = var(maschinen_df$Maschine2)
+varianz2gesamt = varianz2stichprobe * (nrow(maschinen_df)-1) / nrow(maschinen_df)
+standardabweichung1stichprobe = sd(maschinen_df$Maschine1)
+standardabweichung1gesamt = standardabweichung1stichprobe * sqrt((nrow(maschinen_df)-1) / nrow(maschinen_df))
+standardabweichung2stichprobe = sd(maschinen_df$Maschine2)
+standardabweichung2gesamt = standardabweichung2stichprobe * sqrt((nrow(maschinen_df)-1) / nrow(maschinen_df))
+
+analyse_df <- data.frame(
+  Kennzahl = c("Maschine 1","Maschine 2"),
+  #Arithmetische_Mittel = c(arithmetisches_mittel1, arithmetisches_mittel2),
+  Spannweite = c(spannweite1, spannweite2),
+  Varianz_Stichprobe = c(varianz1stichprobe, varianz2stichprobe),
+  Standardabweichung_Stichprobe = c(standardabweichung1stichprobe, standardabweichung2stichprobe),
+)
