@@ -68,3 +68,7 @@ analyse_df <- data.frame(
   Maschine1 = c(arithmetisches_mittel1, spannweite1, varianz1stichprobe, standardabweichung1stichprobe),
   Maschine2 = c(arithmetisches_mittel2, spannweite2, varianz2stichprobe, standardabweichung2stichprobe)
 )
+
+write.csv(analyse_df, "maschinen_analyse.csv", row.names = FALSE)
+# Wir würden uns für für die Maschine 2 entscheiden, obwohl das arithmetische Mittel etwas geringer ist,
+# da die Varianz und Standardabweichung geringer sind, was auf eine konstantere Leistung hinweist.
