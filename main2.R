@@ -64,9 +64,7 @@ standardabweichung2stichprobe = sd(maschinen_df$Maschine2)
 standardabweichung2gesamt = standardabweichung2stichprobe * sqrt((nrow(maschinen_df)-1) / nrow(maschinen_df))
 
 analyse_df <- data.frame(
-  Kennzahl = c("Maschine 1","Maschine 2"),
-  #Arithmetische_Mittel = c(arithmetisches_mittel1, arithmetisches_mittel2),
-  Spannweite = c(spannweite1, spannweite2),
-  Varianz_Stichprobe = c(varianz1stichprobe, varianz2stichprobe),
-  Standardabweichung_Stichprobe = c(standardabweichung1stichprobe, standardabweichung2stichprobe),
+  Kennzahl = c("Arithmethisches Mittel", "Spannweite", "Varianz (Stichprobe)", "Standardabweichung (Stichprobe)"),
+  Maschine1 = c(arithmetisches_mittel1, spannweite1, varianz1stichprobe, standardabweichung1stichprobe),
+  Maschine2 = c(arithmetisches_mittel2, spannweite2, varianz2stichprobe, standardabweichung2stichprobe)
 )
