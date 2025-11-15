@@ -41,15 +41,15 @@ rpos2017.erweitert = mutate(
   Poentieller_Umsatz=LPreis*Menge
 )
 # Aufgabe 6
-unterschiedliche_merkmale.beleg = distinct(
+unterschiedliche_merkmale.beleg = n_distinct(
   rpos2017.erweitert,
   rpos2017.erweitert$Beleg
 )
-unterschiedliche_merkmale.artikel = distinct(
+unterschiedliche_merkmale.artikel = n_distinct(
   rpos2017.erweitert,
   rpos2017.erweitert$ArtikelBez
 )
-unterschiedliche_merkmale.artikel = distinct(
+unterschiedliche_merkmale.artikel = n_distinct(
   rpos2017.erweitert,
   rpos2017.erweitert$Ort
 )
