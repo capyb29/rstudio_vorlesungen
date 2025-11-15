@@ -25,7 +25,34 @@ df = data.frame(spalte.1 = 10, spalte.2 = letters[1:10])
 list = list(Vektor = vektor, Matrix = matrix1, DataFrame = df)
 
 
-# Aufgabe 3
+# Aufgabe 3 & 4
 
 rpos = read_excel("RPOS2017.xlsx", sheet = "2017")
-rpos17 = filter(rpos, Jahr == 2017)
+rpos2017 = filter(rpos, Jahr == 2017)
+
+# Aufgabe 5
+rpos2017.erweitert = mutate(
+  rpos2017,
+  Kosten=Menge*EK,
+  Umsatz=Menge*VK,
+  Preisspanne=VK-EK,
+  Rabatt=(LPreis-VK)*Menge,
+  Deckungsbeitrag=(VK-EK)*Menge,
+  Poentieller_Umsatz=LPreis*Menge
+)
+# Aufgabe 6
+total_summary = colSums(transmute(
+  rpos2017,
+  Kosten=Menge*EK,
+  Umsatz=Menge*VK,
+  Preisspanne=VK-EK,
+  Rabatt=(LPreis-VK)*Menge,
+  Deckungsbeitrag=(VK-EK)*Menge,
+  Poentieller_Umsatz=LPreis*Menge
+))
+
+# Aufgabe 7
+
+
+
+  
