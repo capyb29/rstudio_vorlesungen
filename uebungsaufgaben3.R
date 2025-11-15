@@ -57,7 +57,7 @@ unterschiedliche_merkmale.artikel = n_distinct(
 #Aufgabe 7
 df_db_positiv = rpos2017.erweitert[rpos2017.erweitert$Deckungsbeitrag >= 0, ]
 quantile = quantile(df_db_positiv$Deckungsbeitrag, c(0.1, 0.25, 0.5, 0.75, 0.9))
-View(rpos2017.erweitert[rpos2017.erweitert$Deckungsbeitrag == max(rpos2017.erweitert$Deckungsbeitrag),])
+first_rpos2017 = rpos2017.erweitert[rpos2017.erweitert$Deckungsbeitrag == max(rpos2017.erweitert$Deckungsbeitrag),]
 
 # Side Quest Formattable
 total_summary_df = data.frame(Kennzahl = names(total_summary),
