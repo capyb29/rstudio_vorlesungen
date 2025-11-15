@@ -18,3 +18,17 @@ r = (sum((umsatz_vertieb$Vertriebskosten - mx)*(umsatz_vertieb$Umsatz - my))) /
     sqrt(sum((umsatz_vertieb$Vertriebskosten - mx)^2) * sum((umsatz_vertieb$Umsatz - my)^2))
 
 # manuelle formel und funktion gleiches ergebnis
+
+# Aufgabe 3
+umsatz_werbung = read.csv2("umsatz_werbung.csv")
+umsatz_werbung_korr = cor(umsatz_werbung$Werbeausgaben, umsatz_werbung$Jahresumsatz, method = "pearson")
+
+umsatz_werbung_hilfe = mutate(umsatz_werbung,
+                              Werbeausgaben = Werbeausgaben,
+                              Jahresumsatz = Jahresumsatz,
+                              xi2 = Werbeausgaben^2,
+                              xy = Werbeausgaben * Jahresumsatz
+                              )
+
+regression = lm(Jahresumsatz ~ Werbeausgaben, data = umsatz_werbung)
+prediction = predict(regression, data.frame(Werbeausgaben = c(0.4, 7, 22, 23, 24)))
