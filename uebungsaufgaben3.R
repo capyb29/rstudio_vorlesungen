@@ -41,23 +41,20 @@ rpos2017.erweitert = mutate(
   Poentieller_Umsatz=LPreis*Menge
 )
 # Aufgabe 6
-total_summary = colSums(transmute(
-  rpos2017,
-  Kosten=Menge*EK,
-  Umsatz=Menge*VK,
-  Preisspanne=VK-EK,
-  Rabatt=(LPreis-VK)*Menge,
-  Deckungsbeitrag=(VK-EK)*Menge,
-  Poentieller_Umsatz=LPreis*Menge
-))
+unterschiedliche_merkmale.beleg = distinct(
+  rpos2017.erweitert,
+  rpos2017.erweitert$Beleg
+)
+unterschiedliche_merkmale.artikel = distinct(
+  rpos2017.erweitert,
+  rpos2017.erweitert$ArtikelBez
+)
+unterschiedliche_merkmale.artikel = distinct(
+  rpos2017.erweitert,
+  rpos2017.erweitert$Ort
+)
 
-total_summary_df = data.frame(Kennzahl = names(total_summary), 
+# Side Quest Formattable
+total_summary_df = data.frame(Kennzahl = names(total_summary),
                               Wert = currency(total_summary, "€"), 
                               row.names = NULL)
-
-
-# Aufgabe 7
-
-
-
-  
