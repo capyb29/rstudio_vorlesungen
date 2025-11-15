@@ -32,3 +32,14 @@ umsatz_werbung_hilfe = mutate(umsatz_werbung,
 
 regression = lm(Jahresumsatz ~ Werbeausgaben, data = umsatz_werbung)
 prediction = predict(regression, data.frame(Werbeausgaben = c(0.4, 7, 22, 23, 24)))
+
+# Aufgabe 4
+spedition = read.csv2("spedition.csv")
+spedition_korr = cor(spedition$Alter, spedition$Reparaturkosten)
+# stark positive Korrelation | je älter das Fahrzeug, desto höher die Reparaturkosten
+
+lm_reparatur = lm(Reparaturkosten ~ Alter, data = spedition)
+koeffizienten = coefficients(lm_reparatur)
+formel = koeffizienten[1] + koeffizienten[2] * spedition$Alter
+
+predict_neuer_laster = predict(lm_reparatur, data.frame(Alter = 8))
