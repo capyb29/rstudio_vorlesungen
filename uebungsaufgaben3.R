@@ -63,3 +63,8 @@ first_rpos2017 = rpos2017.erweitert[rpos2017.erweitert$Deckungsbeitrag == max(rp
 total_summary_df = data.frame(Kennzahl = names(total_summary),
                               Wert = currency(total_summary, "€"), 
                               row.names = NULL)
+
+#korr analyse
+analyse_korr = read.csv2("umsatz_vertrieb.csv")
+cor(analyse_korr$Umsatz, analyse_korr$Vertriebskosten)
+
