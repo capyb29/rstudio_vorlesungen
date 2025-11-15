@@ -51,6 +51,11 @@ total_summary = colSums(transmute(
   Poentieller_Umsatz=LPreis*Menge
 ))
 
+total_summary_df = data.frame(Kennzahl = names(total_summary), 
+                              Wert = currency(total_summary, "€"), 
+                              row.names = NULL)
+
+
 # Aufgabe 7
 
 
