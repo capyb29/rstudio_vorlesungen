@@ -1,3 +1,4 @@
+library(dplyr)
 
 # Aufgabe 1
 klausurergebnis = data.frame(
